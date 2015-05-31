@@ -46,6 +46,8 @@ class Display:
             print()
 
     def show(self):
+        if self.ports:
+            port_adapter.setup(self.ports)
         while not self.buffer.empty():
             column = self.buffer.get()
             for pos in range(1, self.columns):
@@ -57,10 +59,7 @@ class Display:
                         item = self.matrix[column_index][row_index]
                         port = self.ports[column_index][row_index]
                         port_adapter.output(port, item)
-            else:
-                for column in self.matrix:
-                    for item in column:
-                        print('{}'.format(item), end=' ')
-                    print()
-                print('---------------')
-                time.sleep(0.5)
+            for item in column:
+                print('{}'.format(item), end=' ')
+            print()
+            time.sleep(0.2)
