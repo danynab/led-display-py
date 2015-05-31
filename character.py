@@ -256,12 +256,12 @@ class Character:
             self._init_matrix()
 
     def _mark_section_horizontal(self, x_initial, y, x_final):
-        x_set = range(x_initial, x_final + 1)  # if x_initial < x_final else range(x_final, x_initial + 1)
+        x_set = range(x_initial, x_final + 1)
         for x in x_set:
             self._mark_point(x, y)
 
     def _mark_section_vertical(self, x, y_initial, y_final):
-        y_set = range(y_initial, y_final + 1)  # if y_initial < y_final else range(y_final, y_initial + 1)
+        y_set = range(y_initial, y_final + 1)
         for y in y_set:
             self._mark_point(x, y)
 
